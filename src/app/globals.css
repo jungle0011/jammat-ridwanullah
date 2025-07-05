@@ -35,15 +35,14 @@ code {
   box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
 }
 
-html, body {
-  width: 100% !important;
-  background: #bfdbfe !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-#__next, #root {
-  width: 100vw !important;
+* {
+  box-sizing: border-box !important;
   max-width: 100vw !important;
-  border: 4px solid red !important;
+}
+html, body, #__next, #root {
+  width: 100vw !important;
+  min-width: 100vw !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  background: #bfdbfe !important;
 }
