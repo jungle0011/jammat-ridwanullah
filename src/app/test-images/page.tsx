@@ -53,6 +53,14 @@ export default function TestImagesPage() {
             </div>
           </div>
         </div>
+
+        <div>
+          <h2 className="text-xl font-bold mb-4">New Test Image</h2>
+          <div className="flex gap-4 items-center">
+            <img src="/assets/img/test-image.jpg" alt="Test Image" className="w-32 h-32 object-cover border" />
+            <a href="/assets/img/test-image.jpg" target="_blank" className="text-blue-600 underline">Open test-image.jpg directly</a>
+          </div>
+        </div>
         
         <div>
           <h2 className="text-xl font-bold mb-4">Direct URL Test</h2>
@@ -61,6 +69,7 @@ export default function TestImagesPage() {
             <a href="/favicon.svg" target="_blank" className="block text-blue-600 underline">/favicon.svg</a>
             <a href="/assets/img/masjid1.jpg" target="_blank" className="block text-blue-600 underline">/assets/img/masjid1.jpg</a>
             <a href="/assets/img/gallery1.jpg" target="_blank" className="block text-blue-600 underline">/assets/img/gallery1.jpg</a>
+            <a href="/assets/img/test-image.jpg" target="_blank" className="block text-blue-600 underline">/assets/img/test-image.jpg</a>
             <a href="/next.svg" target="_blank" className="block text-blue-600 underline">/next.svg (should work)</a>
           </div>
         </div>
