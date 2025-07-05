@@ -31,7 +31,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preload" as="font" href="/assets/fonts/Amiri-Bold.woff2" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" as="image" href="/assets/img/quran-books.webp" type="image/webp" />
       </head>
       <body
