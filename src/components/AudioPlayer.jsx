@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { FaPlay, FaPause, FaHeadphones } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -36,6 +36,11 @@ const SURAHS = [
   },
 ];
 
+function isMobile() {
+  if (typeof window === 'undefined') return false;
+  return window.innerWidth < 768;
+}
+
 export default function AudioPlayer({ lang = 'en' }) {
   const [selectedSurah, setSelectedSurah] = useState(SURAHS[0]);
   const audioRef = useRef(null);
@@ -43,6 +48,11 @@ export default function AudioPlayer({ lang = 'en' }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isWidgetOpen, setIsWidgetOpen] = useState(false);
+
+  // Open by default on mobile
+  useEffect(() => {
+    if (isMobile()) setIsWidgetOpen(true);
+  }, []);
 
   const handleSurahChange = (e) => {
     const surah = SURAHS.find(s => s.id === e.target.value);
@@ -82,10 +92,10 @@ export default function AudioPlayer({ lang = 'en' }) {
 
   return (
     <div className="fixed z-50 bottom-6 left-6 md:bottom-8 md:left-8 flex flex-col items-start">
-      {/* Toggle Button */}
+      {/* Toggle Button (always visible on desktop, hidden on mobile when open) */}
       <button
         onClick={() => setIsWidgetOpen((o) => !o)}
-        className="flex items-center justify-center w-14 h-14 rounded-full shadow-lg bg-gold-500 hover:bg-gold-600 border-2 border-gold-700 focus:outline-none focus:ring-4 focus:ring-gold-300 transition-all duration-200"
+        className={`flex items-center justify-center w-14 h-14 rounded-full shadow-lg bg-gold-500 hover:bg-gold-600 border-2 border-gold-700 focus:outline-none focus:ring-4 focus:ring-gold-300 transition-all duration-200 ${isWidgetOpen && isMobile() ? 'hidden' : ''}`}
         aria-label={isWidgetOpen ? 'Close Qur\'an Recitation' : 'Open Qur\'an Recitation'}
         style={{ color: '#fff', fontSize: 28, boxShadow: '0 2px 16px #d4af37, 0 0 2px #fff' }}
       >
@@ -95,16 +105,25 @@ export default function AudioPlayer({ lang = 'en' }) {
       <AnimatePresence>
         {isWidgetOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+            initial={{ opacity: 0, y: isMobile() ? 100 : 40, scale: isMobile() ? 1 : 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 40, scale: 0.95 }}
+            exit={{ opacity: 0, y: isMobile() ? 100 : 40, scale: isMobile() ? 1 : 0.95 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="mt-3 w-80 max-w-[90vw] rounded-2xl shadow-2xl bg-white/95 dark:bg-zinc-900/95 border-2 border-gold-400 px-5 py-6 flex flex-col items-center space-y-5"
+            className={`mt-3 w-80 max-w-[95vw] rounded-2xl shadow-2xl bg-white/95 dark:bg-zinc-900/95 border-2 border-gold-400 px-5 py-6 flex flex-col items-center space-y-5 ${isMobile() ? 'fixed left-1/2 -translate-x-1/2 bottom-0 mb-4 z-[100]' : ''}`}
             style={{ boxShadow: '0 4px 24px 0 rgba(212,175,55,0.13), 0 1px 8px 0 rgba(0,0,0,0.10)' }}
           >
-            <h2 className="font-amiri text-xl font-bold mb-1 text-gold-700 text-center" style={{ textShadow: '0 2px 8px #d4af37, 0 0 2px #fff' }}>
-              {lang === 'ar' ? 'استمع لتلاوة القرآن' : "Listen to Qur'an Recitation"}
-            </h2>
+            <div className="w-full flex justify-between items-center mb-2">
+              <h2 className="font-amiri text-xl font-bold text-gold-700 text-center" style={{ textShadow: '0 2px 8px #d4af37, 0 0 2px #fff' }}>
+                {lang === 'ar' ? 'استمع لتلاوة القرآن' : "Listen to Qur'an Recitation"}
+              </h2>
+              <button
+                onClick={() => setIsWidgetOpen(false)}
+                className="ml-2 p-1 rounded-full bg-gold-100 hover:bg-gold-200 text-gold-700"
+                aria-label="Close recitation widget"
+              >
+                ×
+              </button>
+            </div>
             {/* Surah Selector */}
             <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 w-full justify-center">
               <label htmlFor="surah-select" className="font-amiri text-lg font-bold"

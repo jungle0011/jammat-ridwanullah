@@ -30,17 +30,39 @@ export default function BackgroundLullaby() {
   }, []);
 
   return (
-    <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-2">
+    <div
+      className="fixed z-[100] flex flex-col items-center gap-2"
+      style={{
+        right: '1.5rem',
+        bottom: '1.5rem',
+        left: undefined,
+      }}
+    >
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .lullaby-mobile {
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 1.25rem !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+            width: 90vw !important;
+            max-width: 340px !important;
+          }
+        }
+      `}</style>
       <button
         onClick={toggleLullaby}
-        className={`flex items-center gap-2 px-5 py-3 rounded-full shadow-lg border-2 border-gold-300 bg-white/90 dark:bg-black/80 text-gold-600 font-amiri font-bold text-lg hover:bg-gold-50 dark:hover:bg-gold-900 transition focus:outline-none focus:ring-4 focus:ring-gold-200`}
-        style={{ color: '#ffe082', textShadow: '0 2px 8px #d4af37, 0 0 2px #fff' }}
+        className={
+          `lullaby-mobile flex items-center justify-center gap-2 px-6 py-4 rounded-full shadow-lg border-2 border-gold-300 bg-white/90 dark:bg-black/80 text-gold-600 font-amiri font-bold text-lg hover:bg-gold-50 dark:hover:bg-gold-900 transition focus:outline-none focus:ring-4 focus:ring-gold-200`
+        }
+        style={{ color: '#ffe082', textShadow: '0 2px 8px #d4af37, 0 0 2px #fff', fontSize: '1.1rem' }}
         aria-label={playing ? 'Pause lullaby' : 'Play lullaby'}
       >
         <FaMusic className="text-2xl" />
         {playing ? <FaVolumeUp className="text-xl" /> : <FaVolumeMute className="text-xl" />}
-        <span className="hidden md:inline-block">
-          {playing ? 'Pause Lullaby' : 'Play Lullaby'}
+        <span className="inline-block md:inline-block text-base md:text-lg">
+          {playing ? (window.innerWidth < 768 ? 'Pause' : 'Pause Lullaby') : (window.innerWidth < 768 ? 'Lullaby' : 'Play Lullaby')}
         </span>
       </button>
       {/* Audio element: muted by default, only plays after user interaction */}
