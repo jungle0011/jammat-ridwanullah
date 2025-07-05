@@ -111,7 +111,7 @@ export default function AudioPlayer({ lang = 'en' }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: isMobile ? 100 : 40, scale: isMobile ? 1 : 0.95 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
-            className={`mt-3 rounded-2xl shadow-2xl bg-white/95 dark:bg-zinc-900/95 border-2 border-gold-400 ${isMobile ? 'px-2 py-4 fixed left-1/2 -translate-x-1/2 bottom-4 w-full max-w-[95vw] z-[120] overflow-y-auto' : 'px-5 py-6 w-80 max-w-[95vw]'} flex flex-col items-center space-y-5`}
+            className={`mt-3 rounded-2xl shadow-2xl bg-white/95 dark:bg-zinc-900/95 border-2 border-gold-400 ${isMobile ? 'px-1 py-2 fixed left-0 right-0 mx-auto bottom-4 w-full max-w-[98vw] z-[120] overflow-y-auto' : 'px-5 py-6 w-80 max-w-[95vw]'} flex flex-col items-center space-y-5`}
             style={{ boxShadow: '0 4px 24px 0 rgba(212,175,55,0.13), 0 1px 8px 0 rgba(0,0,0,0.10)' }}
           >
             <div className="w-full relative mb-2">
