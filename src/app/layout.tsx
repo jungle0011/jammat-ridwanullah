@@ -19,7 +19,8 @@ export const metadata: Metadata = {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon.ico', type: 'image/x-icon' },
-      { url: '/apple-touch-icon.png', type: 'image/png' }
+      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/apple-touch-icon.png', type: 'image/png', sizes: '180x180' }
     ]
   }
 };
@@ -35,7 +36,8 @@ export default function RootLayout({
         <link rel="preload" as="image" href="/assets/img/quran-books.webp" type="image/webp" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#fffbe6" />
       </head>
