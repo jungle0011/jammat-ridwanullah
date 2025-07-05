@@ -18,7 +18,8 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', type: 'image/x-icon' }
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/apple-touch-icon.png', type: 'image/png' }
     ]
   }
 };
@@ -32,6 +33,11 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="preload" as="image" href="/assets/img/quran-books.webp" type="image/webp" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon.svg" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#fffbe6" />
       </head>
       <body
         className={`font-amiri bg-gradient-to-b from-green-50 to-white text-gray-800 min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased`}
