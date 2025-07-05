@@ -47,9 +47,6 @@ export default function RootLayout({
         <div className="w-full min-h-screen border-4 border-green-500">
           {children}
         </div>
-        <style jsx global>{`
-          html, body { width: 100vw !important; background: #bfdbfe !important; margin: 0 !important; padding: 0 !important; }
-        `}</style>
       </body>
     </html>
   );

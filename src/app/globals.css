@@ -34,3 +34,10 @@ code {
 .shadow-soft {
   box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
 }
+
+html, body {
+  width: 100vw !important;
+  background: #bfdbfe !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
