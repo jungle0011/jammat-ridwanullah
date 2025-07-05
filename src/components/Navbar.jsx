@@ -103,40 +103,40 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode, activeSec
       </div>
       {/* Mobile Menu Overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 flex flex-col items-end md:hidden">
-          <div className="w-3/4 max-w-xs bg-white dark:bg-zinc-900 h-full shadow-2xl p-6 flex flex-col gap-6 animate-slide-in-right">
-            <div className="flex justify-between items-center mb-2">
+        <div className="fixed inset-0 z-[100] bg-white dark:bg-zinc-900 flex flex-col items-center justify-center md:hidden transition-all duration-300">
+          <div className="w-full h-full flex flex-col items-center justify-center px-6 py-8">
+            <div className="flex justify-between items-center w-full mb-8">
               <span
                 className="font-amiri text-2xl font-bold text-gold-400 tracking-wide select-none whitespace-nowrap"
                 style={{ color: GOLD_BRIGHT }}
               >
                 {lang === 'ar' ? 'القائمة' : 'Menu'}
               </span>
-              <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
-                <FaTimes size={24} />
+              <button onClick={() => setMenuOpen(false)} aria-label="Close menu" className="text-gold-700 text-3xl">
+                <FaTimes size={32} />
               </button>
             </div>
-            <ul className="flex flex-col gap-4 text-lg font-amiri">
+            <ul className="flex flex-col gap-6 text-2xl font-amiri w-full items-center">
               {navLinks.map((link) => (
-                <li key={link.id}>
+                <li key={link.id} className="w-full text-center">
                   <button
                     onClick={() => handleNavClick(link.id)}
-                    className={`w-full text-left px-2 py-2 rounded transition-colors duration-200 focus:outline-none ${
+                    className={`w-full text-center px-2 py-3 rounded transition-colors duration-200 focus:outline-none ${
                       activeSection === link.id
                         ? 'text-gold-600 bg-gold-50 dark:bg-gold-900'
                         : 'text-gray-800 dark:text-gray-100 hover:text-gold-500'
                     }`}
-                    style={{ fontWeight: activeSection === link.id ? 700 : 400, fontSize: lang === 'ar' ? '1.1rem' : undefined }}
+                    style={{ fontWeight: activeSection === link.id ? 700 : 400, fontSize: lang === 'ar' ? '1.2rem' : undefined }}
                   >
                     {lang === 'ar' ? link.label.ar : link.label.en}
                   </button>
                 </li>
               ))}
             </ul>
-            <div className="mt-auto flex justify-center">
+            <div className="mt-10 flex justify-center w-full">
               <button
                 onClick={() => setLang((l) => (l === 'en' ? 'ar' : 'en'))}
-                className="px-4 py-2 rounded-full border-2 border-gold-300 bg-white dark:bg-black font-bold shadow hover:bg-gold-50 dark:hover:bg-gold-900 transition text-lg"
+                className="px-6 py-3 rounded-full border-2 border-gold-300 bg-white dark:bg-black font-bold shadow hover:bg-gold-50 dark:hover:bg-gold-900 transition text-xl"
                 aria-label="Switch language"
                 style={{ color: GOLD_BRIGHT, textShadow: '0 2px 8px #d4af37, 0 0 2px #fff' }}
               >
@@ -146,15 +146,6 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode, activeSec
           </div>
         </div>
       )}
-      <style jsx global>{`
-        @keyframes slide-in-right {
-          from { transform: translateX(100%); opacity: 0; }
-          to { transform: translateX(0); opacity: 1; }
-        }
-        .animate-slide-in-right {
-          animation: slide-in-right 0.3s cubic-bezier(0.4,0,0.2,1);
-        }
-      `}</style>
     </nav>
   );
 } 

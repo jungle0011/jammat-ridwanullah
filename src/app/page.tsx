@@ -5,7 +5,7 @@ import HeroSection from '@/components/HeroSection';
 import VerseOfTheDay from '@/components/VerseOfTheDay';
 import PrayerTimes from '@/components/PrayerTimes';
 import Footer from '@/components/Footer';
-import BackgroundLullaby from '@/components/BackgroundLullaby';
+// import BackgroundLullaby from '@/components/BackgroundLullaby';
 import AboutImam from '@/components/AboutImam';
 import Gallery from '@/components/Gallery';
 import DuaWall from '@/components/DuaWall';
@@ -65,7 +65,7 @@ export default function Page() {
 
   return (
     <div className={`font-amiri bg-gradient-to-b from-green-50 to-white text-gray-800 min-h-screen ${darkMode ? 'dark' : ''}`}> 
-      <BackgroundLullaby />
+      {/* <BackgroundLullaby /> */}
       <Navbar lang={lang} setLang={setLang} darkMode={darkMode} setDarkMode={setDarkMode} activeSection={activeSection} />
       <div id="home"><HeroSection lang={lang} /></div>
       <div id="prayer-times"><PrayerTimes lang={lang} /></div>
