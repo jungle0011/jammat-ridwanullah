@@ -1,103 +1,144 @@
-import Image from "next/image";
+'use client';
+import React, { useState, useEffect, useRef } from 'react';
+import Navbar from '@/components/Navbar';
+import HeroSection from '@/components/HeroSection';
+import VerseOfTheDay from '@/components/VerseOfTheDay';
+import PrayerTimes from '@/components/PrayerTimes';
+import Footer from '@/components/Footer';
+import BackgroundLullaby from '@/components/BackgroundLullaby';
+import { motion } from 'framer-motion';
+import { FaStarAndCrescent } from 'react-icons/fa';
+import './App.css'; // For custom patterns or extra CSS
+import AboutImam from '@/components/AboutImam';
+import Gallery from '@/components/Gallery';
+import DuaWall from '@/components/DuaWall';
+import ContactForm from '@/components/ContactForm';
+import AudioPlayer from '@/components/AudioPlayer';
+import Donations from '@/components/Donations';
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+const sectionOrder = [
+  { id: 'home', ref: 'hero' },
+  { id: 'prayer-times', ref: 'prayer' },
+  { id: 'verse', ref: 'verse' },
+  { id: 'imam', ref: 'imam' },
+  { id: 'gallery', ref: 'gallery' },
+  { id: 'duawall', ref: 'duawall' },
+  { id: 'contact', ref: 'contact' },
+];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+function usePageLoaded(minTime = 1200, fadeTime = 700) {
+  const [fadeOut, setFadeOut] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
+  const timerRef = useRef<number>(Date.now());
+
+  useEffect(() => {
+    const onLoad = () => {
+      const elapsed = Date.now() - timerRef.current;
+      const remaining = Math.max(0, minTime - elapsed);
+      setTimeout(() => {
+        setFadeOut(true);
+        setTimeout(() => setShowLoader(false), fadeTime);
+      }, remaining);
+    };
+    timerRef.current = Date.now();
+    if (typeof window !== 'undefined' && document.readyState === 'complete') {
+      onLoad();
+    } else if (typeof window !== 'undefined') {
+      window.addEventListener('load', onLoad);
+      return () => window.removeEventListener('load', onLoad);
+    }
+  }, [minTime, fadeTime]);
+  return { showLoader, fadeOut };
 }
+
+export default function Page() {
+  const [verse] = useState('Indeed, Allah is with those who fear Him and those who are doers of good. (Qur\'an 16:128)');
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') === 'dark';
+    }
+    return false;
+  });
+  const [lang, setLang] = useState('en');
+  const [activeSection, setActiveSection] = useState('home');
+  const { showLoader, fadeOut } = usePageLoaded(1200, 700);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const root = window.document.documentElement;
+    if (darkMode) {
+      root.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [darkMode]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const handleScroll = () => {
+      const offsets = sectionOrder.map(({ id }) => {
+        const el = document.getElementById(id);
+        if (!el) return { id, top: Infinity };
+        const rect = el.getBoundingClientRect();
+        return { id, top: Math.abs(rect.top) };
+      });
+      const closest = offsets.reduce((a, b) => (a.top < b.top ? a : b));
+      setActiveSection(closest.id);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!showLoader) return;
+    if (fadeOut) {
+      if (typeof window !== 'undefined') {
+        requestAnimationFrame(() => {});
+      }
+    }
+  }, [fadeOut, showLoader]);
+
+  return (
+    <>
+      <div className={`font-amiri bg-gradient-to-b from-green-50 to-white text-gray-800 min-h-screen ${darkMode ? 'dark' : ''}`}> 
+        <BackgroundLullaby />
+        <Navbar lang={lang} setLang={setLang} darkMode={darkMode} setDarkMode={setDarkMode} activeSection={activeSection} />
+        <div id="home"><HeroSection lang={lang} /></div>
+        <div id="prayer-times"><PrayerTimes lang={lang} /></div>
+        <div id="verse"><VerseOfTheDay verse={verse} lang={lang} /></div>
+        <div id="audio"><AudioPlayer lang={lang} /></div>
+        <div id="imam"><AboutImam lang={lang} /></div>
+        <div id="gallery"><Gallery /></div>
+        <div id="duawall"><DuaWall /></div>
+        <div id="donations"><Donations /></div>
+        <div id="contact"><ContactForm lang={lang} /></div>
+        <Footer />
+      </div>
+      {showLoader && (
+        <motion.div
+          key="loader"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: fadeOut ? 0 : 1 }}
+          transition={{ duration: 0.7, ease: 'easeInOut' }}
+          className={`fixed inset-0 z-[9999] flex items-center justify-center ${fadeOut ? 'bg-transparent' : 'bg-black/90 dark:bg-black/95'}`}
+          style={{ pointerEvents: 'auto', backgroundColor: fadeOut ? 'transparent' : '#111' }}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0.7 }}
+            animate={{ scale: [0.9, 1.1, 0.9], opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+            className="flex flex-col items-center"
+          >
+            <FaStarAndCrescent className="text-[5rem] md:text-[7rem]" style={{ color: '#ffe082', filter: 'drop-shadow(0 0 24px #ffe082)' }} />
+            <span className="mt-6 font-amiri text-2xl md:text-3xl text-gold-200 tracking-wide" style={{ color: '#ffe082', textShadow: '0 2px 8px #d4af37, 0 0 2px #fff' }}>
+              جماعة رضوان الله الاكبر
+            </span>
+          </motion.div>
+        </motion.div>
+      )}
+    </>
+  );
+} 
