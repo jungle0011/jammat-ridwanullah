@@ -42,9 +42,14 @@ export default function RootLayout({
         <meta name="theme-color" content="#fffbe6" />
       </head>
       <body
-        className="w-[100vw] min-h-screen bg-red-200 overflow-x-hidden m-0 p-0 font-amiri bg-gradient-to-b from-green-50 to-white text-gray-800 min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased"
+        className="w-[100vw] min-h-screen overflow-x-hidden m-0 p-0 font-amiri text-gray-800 min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased"
       >
-        {children}
+        <div className="w-full min-h-screen border-4 border-green-500">
+          {children}
+        </div>
+        <style jsx global>{`
+          html, body { width: 100vw !important; background: #bfdbfe !important; margin: 0 !important; padding: 0 !important; }
+        `}</style>
       </body>
     </html>
   );
