@@ -42,7 +42,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#fffbe6" />
       </head>
       <body
-        className="w-full min-w-0 overflow-x-hidden font-amiri bg-gradient-to-b from-green-50 to-white text-gray-800 min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased"
+        className="w-[100vw] min-h-screen bg-red-200 overflow-x-hidden m-0 p-0 font-amiri bg-gradient-to-b from-green-50 to-white text-gray-800 min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased"
       >
         {children}
       </body>
