@@ -41,3 +41,8 @@ html, body {
   margin: 0 !important;
   padding: 0 !important;
 }
+
+.border-green-500 > * {
+  width: 100vw !important;
+  border: 2px solid orange !important;
+}
