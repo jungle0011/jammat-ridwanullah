@@ -111,17 +111,18 @@ export default function AudioPlayer({ lang = 'en' }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: isMobile ? 100 : 40, scale: isMobile ? 1 : 0.95 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
-            className={`mt-3 rounded-2xl shadow-2xl bg-white/95 dark:bg-zinc-900/95 border-2 border-gold-400 px-5 py-6 flex flex-col items-center space-y-5 ${isMobile ? 'fixed left-1/2 -translate-x-1/2 bottom-4 w-[95vw] max-w-sm z-[120] overflow-y-auto' : 'w-80 max-w-[95vw]'}`}
+            className={`mt-3 rounded-2xl shadow-2xl bg-white/95 dark:bg-zinc-900/95 border-2 border-gold-400 ${isMobile ? 'px-2 py-4 fixed left-1/2 -translate-x-1/2 bottom-4 w-full max-w-[95vw] z-[120] overflow-y-auto' : 'px-5 py-6 w-80 max-w-[95vw]'} flex flex-col items-center space-y-5`}
             style={{ boxShadow: '0 4px 24px 0 rgba(212,175,55,0.13), 0 1px 8px 0 rgba(0,0,0,0.10)' }}
           >
-            <div className="w-full flex justify-between items-center mb-2">
+            <div className="w-full relative mb-2">
               <h2 className="font-amiri text-xl font-bold text-gold-700 text-center" style={{ textShadow: '0 2px 8px #d4af37, 0 0 2px #fff' }}>
                 {lang === 'ar' ? 'استمع لتلاوة القرآن' : "Listen to Qur'an Recitation"}
               </h2>
               <button
                 onClick={handleWidgetClose}
-                className="ml-2 p-1 rounded-full bg-gold-100 hover:bg-gold-200 text-gold-700"
+                className="absolute top-0 right-0 p-2 rounded-full bg-gold-100 hover:bg-gold-200 text-gold-700 z-10"
                 aria-label="Close recitation widget"
+                style={{fontSize:'1.5rem', lineHeight:1}}
               >
                 ×
               </button>

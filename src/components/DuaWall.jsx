@@ -174,7 +174,7 @@ export default function DuaWall() {
       <div className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-20">
         <img src="/assets/svg/pattern-section.svg" alt="pattern" className="w-full h-full object-cover" />
       </div>
-      <div className="relative w-full min-w-0 mx-auto max-w-3xl z-10">
+      <div className="relative w-full min-w-0 px-0 mx-0 md:mx-auto md:max-w-3xl z-10">
         <h2 className="text-3xl md:text-4xl font-amiri font-bold text-center mb-8 text-gold-600 drop-shadow-lg" style={{ color: GOLD }}>
           Du’a Wall
         </h2>

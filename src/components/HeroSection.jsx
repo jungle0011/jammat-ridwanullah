@@ -46,7 +46,7 @@ export default function HeroSection({ lang = 'en' }) {
         aria-hidden="true"
       />
       {/* Hero content */}
-      <div className="relative z-30 flex flex-col items-center text-center w-full min-w-0 px-4 py-16 md:py-24 rounded-3xl shadow-2xl bg-black/80 backdrop-blur-lg space-y-10 border border-gold-200 mx-auto max-w-lg md:max-w-2xl lg:max-w-3xl"
+      <div className="relative z-30 flex flex-col items-center text-center w-full min-w-0 px-0 py-10 md:py-24 rounded-none md:rounded-3xl shadow-2xl bg-black/80 backdrop-blur-lg space-y-10 border border-gold-200"
         style={{
           boxShadow: '0 8px 48px 0 rgba(0,0,0,0.45)',
         }}

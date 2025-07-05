@@ -23,7 +23,7 @@ export default function AboutImam({ lang = 'en' }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: 'easeOut' }}
-        className="relative z-10 w-full min-w-0 mx-auto max-w-3xl rounded-2xl md:rounded-3xl shadow-2xl bg-white/90 dark:bg-zinc-900/90 border border-gold-200 md:border-2 md:border-gold-400 px-4 md:px-8 py-8 md:py-12 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8"
+        className="relative z-10 w-full min-w-0 px-0 mx-0 md:mx-auto md:max-w-3xl rounded-2xl md:rounded-3xl shadow-2xl bg-white/90 dark:bg-zinc-900/90 border border-gold-200 md:border-2 md:border-gold-400 px-4 md:px-8 py-8 md:py-12 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8"
         style={{ boxShadow: '0 4px 16px 0 rgba(212,175,55,0.07), 0 1px 8px 0 rgba(0,0,0,0.08)' }}
       >
         {/* Imam Image */}

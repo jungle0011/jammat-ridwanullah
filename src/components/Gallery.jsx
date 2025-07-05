@@ -23,7 +23,7 @@ export default function Gallery() {
       <div className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-20">
         <img src="/assets/svg/pattern-section.svg" alt="pattern" className="w-full h-full object-cover" />
       </div>
-      <div className="relative z-10 w-full min-w-0 mx-auto max-w-4xl">
+      <div className="relative z-10 w-full min-w-0 px-0 mx-0 md:mx-auto md:max-w-4xl">
         <Swiper
           modules={[Navigation, Pagination, A11y]}
           spaceBetween={24}

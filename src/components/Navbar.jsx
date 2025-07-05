@@ -107,7 +107,7 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode, activeSec
           {/* Subtle overlay */}
           <div className="fixed inset-0 z-[99] bg-black/30" onClick={() => setMenuOpen(false)} />
           {/* Side drawer */}
-          <div className="fixed top-0 right-0 z-[100] h-full w-4/5 max-w-xs bg-white dark:bg-zinc-900 shadow-2xl flex flex-col px-6 py-8 animate-slide-in-right overflow-y-auto">
+          <div className="fixed top-0 right-0 z-[100] h-full w-4/5 max-w-xs bg-white dark:bg-zinc-900 shadow-2xl flex flex-col px-6 py-8 animate-slide-in-right overflow-y-auto border-4 border-red-500 bg-gradient-to-br from-yellow-100 via-white to-yellow-200" style={{minHeight:'100vh'}}>
             <div className="flex justify-between items-center mb-8">
               <span
                 className="font-amiri text-2xl font-bold text-gold-400 tracking-wide select-none whitespace-nowrap"
