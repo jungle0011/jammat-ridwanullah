@@ -81,8 +81,8 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode, activeSec
             </li>
           ))}
         </ul>
-        {/* Language Toggle (always visible) */}
-        <div className="flex items-center gap-2 md:gap-4">
+        {/* Language Toggle (desktop only) */}
+        <div className="hidden md:flex items-center gap-2 md:gap-4">
           <button
             onClick={() => setLang((l) => (l === 'en' ? 'ar' : 'en'))}
             className="px-3 py-2 rounded-full border-2 border-gold-300 bg-white dark:bg-black font-bold shadow hover:bg-gold-50 dark:hover:bg-gold-900 transition text-lg whitespace-nowrap"
@@ -91,15 +91,16 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode, activeSec
           >
             {lang === 'en' ? 'العربية' : 'EN'}
           </button>
-          {/* Hamburger menu for mobile */}
-          <button
-            className="md:hidden p-2 rounded border border-gold-200 bg-white dark:bg-black text-gold-700"
-            aria-label="Open menu"
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            {menuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
-          </button>
         </div>
+        {/* Hamburger menu for mobile (always visible) */}
+        <button
+          className="md:hidden p-2 rounded border border-gold-200 bg-white dark:bg-black text-gold-700 ml-2"
+          aria-label="Open menu"
+          onClick={() => setMenuOpen((open) => !open)}
+          style={{ zIndex: 101 }}
+        >
+          {menuOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+        </button>
       </div>
       {/* Mobile Side-Drawer Menu */}
       {menuOpen && (
@@ -136,7 +137,8 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode, activeSec
                 </li>
               ))}
             </ul>
-            <div className="mt-10 flex justify-center w-full">
+            {/* Language Toggle (mobile only) */}
+            <div className="mt-10 flex justify-center w-full md:hidden">
               <button
                 onClick={() => setLang((l) => (l === 'en' ? 'ar' : 'en'))}
                 className="px-6 py-3 rounded-full border-2 border-gold-300 bg-white dark:bg-black font-bold shadow hover:bg-gold-50 dark:hover:bg-gold-900 transition text-xl"
