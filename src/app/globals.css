@@ -36,13 +36,8 @@ code {
 }
 
 html, body {
-  width: 100vw !important;
+  width: 100% !important;
   background: #bfdbfe !important;
   margin: 0 !important;
   padding: 0 !important;
-}
-
-.border-green-500 > * {
-  width: 100vw !important;
-  border: 2px solid orange !important;
 }
