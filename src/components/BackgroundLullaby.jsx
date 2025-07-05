@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { FaMusic, FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
 
 // Use a local, license-free Arabic instrumental for maximum reliability
@@ -8,6 +8,13 @@ export default function BackgroundLullaby() {
   const audioRef = useRef(null);
   const [playing, setPlaying] = useState(false);
   const [userInteracted, setUserInteracted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth < 768);
+    }
+  }, []);
 
   const toggleLullaby = () => {
     setUserInteracted(true);
@@ -22,7 +29,7 @@ export default function BackgroundLullaby() {
   };
 
   // Pause on unmount
-  React.useEffect(() => {
+  useEffect(() => {
     const audio = audioRef.current;
     return () => {
       if (audio) audio.pause();
@@ -62,7 +69,7 @@ export default function BackgroundLullaby() {
         <FaMusic className="text-2xl" />
         {playing ? <FaVolumeUp className="text-xl" /> : <FaVolumeMute className="text-xl" />}
         <span className="inline-block md:inline-block text-base md:text-lg">
-          {playing ? (window.innerWidth < 768 ? 'Pause' : 'Pause Lullaby') : (window.innerWidth < 768 ? 'Lullaby' : 'Play Lullaby')}
+          {playing ? (isMobile ? 'Pause' : 'Pause Lullaby') : (isMobile ? 'Lullaby' : 'Play Lullaby')}
         </span>
       </button>
       {/* Audio element: muted by default, only plays after user interaction */}
