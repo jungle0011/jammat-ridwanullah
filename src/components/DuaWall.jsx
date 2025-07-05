@@ -169,12 +169,12 @@ export default function DuaWall() {
   const [openCategory, setOpenCategory] = useState(categories[0].key);
 
   return (
-    <section id="duawall" className="relative py-16 px-4 md:px-0 bg-gradient-to-br from-gold-50 via-white to-gold-100 dark:from-black dark:via-gray-900 dark:to-gold-950 min-h-[60vh]">
+    <section id="duawall" className="relative py-16 px-0 w-full min-w-0 bg-gradient-to-br from-gold-50 via-white to-gold-100 dark:from-black dark:via-gray-900 dark:to-gold-950 min-h-[60vh]">
       {/* Geometric SVG background pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-20">
         <img src="/assets/svg/pattern-section.svg" alt="pattern" className="w-full h-full object-cover" />
       </div>
-      <div className="relative max-w-3xl mx-auto z-10">
+      <div className="relative w-full min-w-0 mx-auto max-w-3xl z-10">
         <h2 className="text-3xl md:text-4xl font-amiri font-bold text-center mb-8 text-gold-600 drop-shadow-lg" style={{ color: GOLD }}>
           Du’a Wall
         </h2>

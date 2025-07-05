@@ -11,12 +11,12 @@ export default function VerseOfTheDay({ verse, lang = 'en' }) {
   const verseArabic = 'إِنَّ اللَّهَ مَعَ الَّذِينَ اتَّقَوْا وَالَّذِينَ هُم مُّحْسِنُونَ';
   const verseEnglish = "Indeed, Allah is with those who fear Him and those who are doers of good. (Qur'an 16:128)";
   return (
-    <section className="relative py-8 md:py-12 flex justify-center items-center bg-gradient-to-b from-gold-100/60 via-green-200/60 to-gold-50/40 dark:from-black dark:to-zinc-900 overflow-hidden">
+    <section className="relative py-8 md:py-12 flex justify-center items-center w-full min-w-0 bg-gradient-to-b from-gold-100/60 via-green-200/60 to-gold-50/40 dark:from-black dark:to-zinc-900 overflow-hidden">
       {/* Geometric SVG background pattern (identical to Dua Wall) */}
       <div className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-20">
         <img src="/assets/svg/pattern-section.svg" alt="pattern" className="w-full h-full object-cover" />
       </div>
-      <div className="relative z-10 w-full flex justify-center items-center">
+      <div className="relative z-10 w-full min-w-0 flex justify-center items-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

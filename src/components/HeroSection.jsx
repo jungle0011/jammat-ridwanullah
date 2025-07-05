@@ -21,7 +21,7 @@ export default function HeroSection({ lang = 'en' }) {
   };
 
   return (
-    <section className="relative flex items-center justify-center min-h-[100vh] pt-8 pb-8 px-4 overflow-hidden bg-black">
+    <section className="relative flex items-center justify-center min-h-[100vh] pt-8 pb-8 px-0 w-full min-w-0 overflow-hidden bg-black">
       {/* Quran/prayer beads background image */}
       <picture>
         <source srcSet={QURAN_BG.replace('.jpg', '.webp')} type="image/webp" />
@@ -46,7 +46,7 @@ export default function HeroSection({ lang = 'en' }) {
         aria-hidden="true"
       />
       {/* Hero content */}
-      <div className="relative z-30 flex flex-col items-center text-center max-w-3xl mx-auto px-8 py-16 md:py-24 rounded-3xl shadow-2xl bg-black/80 backdrop-blur-lg space-y-10 border border-gold-200"
+      <div className="relative z-30 flex flex-col items-center text-center w-full min-w-0 px-4 py-16 md:py-24 rounded-3xl shadow-2xl bg-black/80 backdrop-blur-lg space-y-10 border border-gold-200 mx-auto max-w-lg md:max-w-2xl lg:max-w-3xl"
         style={{
           boxShadow: '0 8px 48px 0 rgba(0,0,0,0.45)',
         }}

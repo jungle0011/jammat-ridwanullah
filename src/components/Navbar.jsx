@@ -101,11 +101,14 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode, activeSec
           </button>
         </div>
       </div>
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Side-Drawer Menu */}
       {menuOpen && (
-        <div className="fixed inset-0 z-[100] bg-white dark:bg-zinc-900 flex flex-col items-center justify-center md:hidden transition-all duration-300">
-          <div className="w-full h-full flex flex-col items-center justify-center px-6 py-8">
-            <div className="flex justify-between items-center w-full mb-8">
+        <>
+          {/* Subtle overlay */}
+          <div className="fixed inset-0 z-[99] bg-black/30" onClick={() => setMenuOpen(false)} />
+          {/* Side drawer */}
+          <div className="fixed top-0 right-0 z-[100] h-full w-4/5 max-w-xs bg-white dark:bg-zinc-900 shadow-2xl flex flex-col px-6 py-8 animate-slide-in-right overflow-y-auto">
+            <div className="flex justify-between items-center mb-8">
               <span
                 className="font-amiri text-2xl font-bold text-gold-400 tracking-wide select-none whitespace-nowrap"
                 style={{ color: GOLD_BRIGHT }}
@@ -144,7 +147,16 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode, activeSec
               </button>
             </div>
           </div>
-        </div>
+          <style jsx global>{`
+            @keyframes slide-in-right {
+              from { transform: translateX(100%); opacity: 0; }
+              to { transform: translateX(0); opacity: 1; }
+            }
+            .animate-slide-in-right {
+              animation: slide-in-right 0.3s cubic-bezier(0.4,0,0.2,1);
+            }
+          `}</style>
+        </>
       )}
     </nav>
   );

@@ -17,12 +17,12 @@ export default function PrayerTimes({ lang = 'en' }) {
     { name: { en: 'Isha', ar: 'العشاء' }, time: '19:45' },
   ];
   return (
-    <section className="relative py-10 md:py-14 flex justify-center items-center bg-gradient-to-b from-gold-100/60 via-green-200/60 to-gold-50/40 dark:from-zinc-900 dark:to-black overflow-hidden">
+    <section className="relative py-10 md:py-14 flex justify-center items-center w-full min-w-0 bg-gradient-to-b from-gold-100/60 via-green-200/60 to-gold-50/40 dark:from-zinc-900 dark:to-black overflow-hidden">
       {/* Geometric SVG background pattern (identical to Dua Wall) */}
       <div className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-20">
         <img src="/assets/svg/pattern-section.svg" alt="pattern" className="w-full h-full object-cover" />
       </div>
-      <div className="relative z-10 w-full flex justify-center items-center">
+      <div className="relative z-10 w-full min-w-0 flex justify-center items-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -18,12 +18,12 @@ const IMAGES = [
 
 export default function Gallery() {
   return (
-    <section id="gallery" className="relative py-12 flex justify-center items-center bg-gradient-to-b from-gold-100/60 via-green-200/60 to-gold-50/40 dark:from-black dark:to-zinc-900 overflow-hidden">
+    <section id="gallery" className="relative py-14 px-0 w-full min-w-0 flex justify-center items-center bg-gradient-to-b from-gold-100/60 via-green-200/60 to-gold-50/40 dark:from-black dark:to-zinc-900 overflow-hidden">
       {/* Geometric SVG background pattern (identical to Dua Wall) */}
       <div className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-20">
         <img src="/assets/svg/pattern-section.svg" alt="pattern" className="w-full h-full object-cover" />
       </div>
-      <div className="relative z-10 w-full max-w-4xl mx-auto">
+      <div className="relative z-10 w-full min-w-0 mx-auto max-w-4xl">
         <Swiper
           modules={[Navigation, Pagination, A11y]}
           spaceBetween={24}

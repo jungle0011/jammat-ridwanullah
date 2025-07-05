@@ -13,7 +13,7 @@ export default function AboutImam({ lang = 'en' }) {
     ar: 'سيرة الإمام: قائد متواضع يوجه مجتمعنا بالحكمة والرحمة والتفاني في سبيل الله.',
   };
   return (
-    <section className="relative py-10 md:py-14 flex justify-center items-center bg-gradient-to-b from-gold-50/20 via-green-50/40 to-gold-50/10 dark:from-zinc-900 dark:to-black overflow-hidden">
+    <section className="relative py-10 md:py-14 flex justify-center items-center w-full min-w-0 bg-gradient-to-b from-gold-50/20 via-green-50/40 to-gold-50/10 dark:from-zinc-900 dark:to-black overflow-hidden">
       {/* Subtle geometric pattern overlay (supports dark mode) */}
       <div className="absolute inset-0 pointer-events-none opacity-10 text-gold-400 dark:text-gold-900">
         <img src="/assets/svg/pattern-section.svg" alt="Islamic pattern" className="w-full h-full object-cover" aria-hidden="true" />
@@ -23,7 +23,7 @@ export default function AboutImam({ lang = 'en' }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: 'easeOut' }}
-        className="relative z-10 w-full max-w-3xl mx-auto rounded-2xl md:rounded-3xl shadow-2xl bg-white/90 dark:bg-zinc-900/90 border border-gold-200 md:border-2 md:border-gold-400 px-4 md:px-8 py-8 md:py-12 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8"
+        className="relative z-10 w-full min-w-0 mx-auto max-w-3xl rounded-2xl md:rounded-3xl shadow-2xl bg-white/90 dark:bg-zinc-900/90 border border-gold-200 md:border-2 md:border-gold-400 px-4 md:px-8 py-8 md:py-12 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8"
         style={{ boxShadow: '0 4px 16px 0 rgba(212,175,55,0.07), 0 1px 8px 0 rgba(0,0,0,0.08)' }}
       >
         {/* Imam Image */}
