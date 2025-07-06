@@ -13,7 +13,7 @@ const navLinks = [
   { id: 'contact', label: { en: 'Contact', ar: 'اتصل بنا' } },
 ];
 
-export default function Navbar({ lang, setLang, darkMode, setDarkMode, activeSection }) {
+export default function Navbar({ lang, setLang, activeSection }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Smooth scroll handler
@@ -32,14 +32,8 @@ export default function Navbar({ lang, setLang, darkMode, setDarkMode, activeSec
 
   // Persist dark mode
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [darkMode]);
+    document.documentElement.classList.add('dark');
+  }, []);
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-white/80 dark:bg-black/80 shadow-md backdrop-blur-md">
