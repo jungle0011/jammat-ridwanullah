@@ -66,7 +66,7 @@ export default function Page() {
   return (
     <div className={`font-amiri bg-gradient-to-b from-green-50 to-white text-gray-800 min-h-screen ${darkMode ? 'dark' : ''}`}> 
       {/* <BackgroundLullaby /> */}
-      <Navbar lang={lang} setLang={setLang} darkMode={darkMode} setDarkMode={setDarkMode} activeSection={activeSection} />
+      <Navbar lang={lang} setLang={setLang} activeSection={activeSection} />
       <div id="home"><HeroSection lang={lang} /></div>
       <div id="prayer-times"><PrayerTimes lang={lang} /></div>
       <div id="verse"><VerseOfTheDay verse={verse} lang={lang} /></div>
