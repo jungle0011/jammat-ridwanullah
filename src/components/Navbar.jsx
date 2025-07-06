@@ -33,6 +33,7 @@ export default function Navbar({ lang, setLang, activeSection }) {
   // Persist dark mode
   useEffect(() => {
     document.documentElement.classList.add('dark');
+    document.body.classList.add('dark');
   }, []);
 
   return (
