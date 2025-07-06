@@ -10,8 +10,8 @@ export default function Donations() {
         <img src="/assets/svg/pattern-section.svg" alt="pattern" className="w-full h-full object-cover" />
       </div>
       <div className="relative z-10 w-full min-w-0 px-0 mx-0 md:mx-auto md:max-w-3xl">
-        <div className="rounded-2xl shadow-2xl bg-zinc-900/95 border border-gold-200 md:border-2 md:border-gold-400 px-6 md:px-10 py-10 flex flex-col items-center space-y-8"
-          style={{ boxShadow: '0 4px 24px 0 rgba(212,175,55,0.10), 0 1px 8px 0 rgba(0,0,0,0.10)' }}
+        <div className="rounded-2xl shadow-2xl border border-gold-200 md:border-2 md:border-gold-400 px-6 md:px-10 py-10 flex flex-col items-center space-y-8"
+          style={{ background: '#18181b', backgroundColor: '#18181b !important', boxShadow: '0 4px 24px 0 rgba(212,175,55,0.10), 0 1px 8px 0 rgba(0,0,0,0.10)' }}
         >
           <h2 className="font-amiri text-3xl md:text-4xl font-bold text-center mb-2 text-gold-600 drop-shadow-lg" style={{ color: GOLD }}>
             Support the Masjid
