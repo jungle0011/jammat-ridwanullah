@@ -4,7 +4,7 @@ const GOLD = '#ffe082';
 
 export default function Donations() {
   return (
-    <section className="relative py-14 px-0 w-full min-w-0 bg-black bg-gradient-to-br from-gold-50 via-white to-gold-100 dark:from-black dark:via-zinc-900 dark:to-zinc-950 min-h-[40vh] overflow-hidden">
+    <section className="relative py-14 px-0 w-full min-w-0 bg-black bg-gradient-to-br from-gold-50 via-white to-gold-100 dark:from-black dark:via-zinc-900 dark:to-zinc-950 min-h-[40vh] overflow-hidden" style={{ background: '#000 !important' }}>
       {/* Geometric SVG background pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-20">
         <img src="/assets/svg/pattern-section.svg" alt="pattern" className="w-full h-full object-cover" />
