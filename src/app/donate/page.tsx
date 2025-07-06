@@ -37,7 +37,7 @@ export default function DonatePage() {
           Your generous donation helps us maintain and expand the mosque, support community programs, and provide a spiritual home for all. Every contribution goes directly to the betterment of our masjid and the services we offer.
         </p>
         <div className="w-full bg-gold-50 dark:bg-zinc-800 rounded-2xl border-2 border-gold-300 p-4 md:p-6 flex flex-col items-center space-y-4 shadow-md">
-          <h2 className="font-amiri text-xl md:text-2xl font-bold text-gold-700 mb-2">Donation Account Details</h2>
+          <h2 className="font-amiri text-xl md:text-2xl font-bold mb-2" style={{ color: '#ffe082', textShadow: '0 2px 8px #d4af37, 0 0 2px #fff' }}>Donation Account Details</h2>
           <div className="text-base md:text-xl font-amiri text-white text-center">
             <div><span className="font-bold">Account Name:</span> Jammat Ridwanulahi li Akbar (w,I,t,)</div>
             <div><span className="font-bold">Bank Name:</span> Stanbic I B T C</div>
