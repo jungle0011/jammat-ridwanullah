@@ -44,7 +44,7 @@ export default function RootLayout({
       <body
         className="w-[100vw] min-h-screen overflow-x-hidden m-0 p-0 font-amiri text-gray-800 min-h-screen ${geistSans.variable} ${geistMono.variable} antialiased"
       >
-        <div className="w-full min-h-screen bg-black">
+        <div className="w-full min-h-screen">
           {children}
         </div>
       </body>
