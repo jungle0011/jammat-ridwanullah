@@ -2,8 +2,8 @@ import Image from 'next/image';
 
 export default function DonatePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gold-50 via-white to-gold-100 dark:from-black dark:via-gray-900 dark:to-gold-950 flex flex-col items-center justify-center py-8 px-2 md:py-12 md:px-4">
-      <div className="w-full max-w-3xl mx-auto rounded-3xl shadow-2xl bg-white/95 dark:bg-zinc-900/95 border-2 border-gold-400 px-2 md:px-12 py-6 md:py-10 flex flex-col items-center space-y-8" style={{ boxShadow: '0 8px 32px 0 rgba(212,175,55,0.13), 0 2px 16px 0 rgba(0,0,0,0.10)' }}>
+    <div className="min-h-screen w-full flex flex-col items-center justify-center py-8 px-2 md:py-12 md:px-4 bg-black">
+      <div className="w-full max-w-3xl mx-auto rounded-3xl shadow-2xl bg-zinc-900/95 border-2 border-gold-400 px-2 md:px-12 py-6 md:py-10 flex flex-col items-center space-y-8" style={{ boxShadow: '0 8px 32px 0 rgba(212,175,55,0.13), 0 2px 16px 0 rgba(0,0,0,0.10)' }}>
         <div className="w-full flex flex-col md:flex-row gap-4 justify-center my-4 md:my-6">
           <img
             src="/assets/img/masjid1.jpg"
